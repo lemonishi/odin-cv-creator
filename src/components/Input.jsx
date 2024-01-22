@@ -8,11 +8,11 @@ export default function Input({ text, type, width }) {
     console.log(inputValue);
   };
   return (
-    <div className>
+    <div className="border-black border-2 mx-2 w-full">
       <p>{text}</p>
       <input
         type={`${type}`}
-        className={`border-black border-2 w-${width}`}
+        className={`border-black border-2 ${width}`}
         onChange={handleInputChange}
       />
     </div>
