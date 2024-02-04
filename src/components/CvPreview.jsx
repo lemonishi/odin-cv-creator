@@ -10,24 +10,21 @@ export default function CvPreview(props) {
 
   const handleDownload = () => {
     const element = document.getElementById("pdf-content");
-    const body = document.body;
-    const html = document.documentElement;
-    const height = Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    );
-    const heightCM = height / 35.35;
+
     const options = {
       margin: 1,
       filename: "cv.pdf",
-      html2canvas: { dpi: 192, letterRendering: true },
+      html2canvas: {
+        scale: 2,
+        logging: true,
+        dpi: 192,
+        letterRendering: true,
+        width: "210mm",
+      },
       jsPDF: {
         orientation: "portrait",
-        unit: "cm",
-        format: [heightCM, 60],
+        unit: "mm",
+        format: "a4",
       },
     };
 
