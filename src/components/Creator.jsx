@@ -1,4 +1,3 @@
-import CvDisplay from "./CvDisplay";
 import CvPreview from "./CvPreview";
 import Form from "./Form";
 import { useState } from "react";
@@ -31,7 +30,6 @@ export default function Creator() {
         {...inputValue}
         handleInputChange={handleInputChange}
       />
-      {/* <CvDisplay {...inputValue} /> */}
       <CvPreview {...inputValue} />
     </div>
   );
