@@ -12,19 +12,15 @@ export default function CvPreview(props) {
     const element = document.getElementById("pdf-content");
 
     const options = {
-      margin: 1,
+      margin: 0,
       filename: "cv.pdf",
-      html2canvas: {
-        scale: 2,
-        logging: true,
-        dpi: 192,
-        letterRendering: true,
-        width: "210mm",
-      },
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 3 },
       jsPDF: {
-        orientation: "portrait",
         unit: "mm",
-        format: "a4",
+        format: [297.1, 210],
+        orientation: "portrait",
+        precision: 16,
       },
     };
 
