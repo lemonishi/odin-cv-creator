@@ -17,9 +17,10 @@ export default function CvPreview(props) {
       image: { type: "jpeg", quality: 0.98 },
       html2canvas: { scale: 3 },
       jsPDF: {
-        orientation: "p",
+        orientation: "portrait",
         unit: "pt",
         format: "letter",
+        precision: 16,
       },
     };
 
