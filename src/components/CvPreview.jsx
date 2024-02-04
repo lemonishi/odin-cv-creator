@@ -13,8 +13,8 @@ export default function CvPreview(props) {
 
     const options = {
       filename: "cv.pdf",
-      image: { type: "pdf", quality: 1 },
-      html2canvas: { scale: 1 },
+      image: { type: "png", quality: 1 },
+      html2canvas: { scale: 2 },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
 
