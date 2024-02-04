@@ -20,7 +20,7 @@ export default function CvPreview(props) {
       const componentWidth = doc.internal.pageSize.getWidth();
       const componentHeight = doc.internal.pageSize.getHeight();
       doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
-      doc.save("receipt.pdf");
+      doc.save("cv.pdf");
     });
   };
 
