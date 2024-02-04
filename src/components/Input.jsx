@@ -1,27 +1,23 @@
-import { useState } from "react";
-
 export default function Input({
   text,
+  name,
   type,
-  width,
   placeholder,
   inputValue,
-  onInputChange,
+  handleInputChange,
 }) {
-  const handleInputChange = (e) => {
-    onInputChange(e.target.value);
-  };
-
   return (
-    <div className="mx-2 w-full">
-      <p>{text}</p>
+    <section className="flex flex-col gap-1 w-full">
+      <label>{text}</label>
       <input
-        type={`${type}`}
-        className={`bg-gray-200 border-2 border-gray-500 text-gray-900 text-md rounded-sm focus:outline-none focus:ring focus:ring-violet-300 px-2 ${width}`}
+        name={name}
+        type={type}
+        className="bg-gray-200 border-2 border-gray-500 text-gray-900 rounded-sm focus:outline-none focus:ring focus:ring-violet-300 px-2"
         onChange={handleInputChange}
         placeholder={`${placeholder}`}
         value={inputValue}
+        autoComplete="off"
       />
-    </div>
+    </section>
   );
 }
