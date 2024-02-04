@@ -10,7 +10,16 @@ export default function CvPreview(props) {
 
   const handleDownload = () => {
     const element = document.getElementById("pdf-content");
-
+    const body = document.body;
+    const html = document.documentElement;
+    const height = Math.max(
+      body.scrollHeight,
+      body.offsetHeight,
+      html.clientHeight,
+      html.scrollHeight,
+      html.offsetHeight
+    );
+    const heightCM = height / 35.35;
     const options = {
       margin: 1,
       filename: "cv.pdf",
