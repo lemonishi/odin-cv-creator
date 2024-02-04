@@ -19,7 +19,7 @@ export default function CvPreview(props) {
         letterRendering: true,
         width: 1080,
         height: 1920,
-        scale: 2,
+        scale: 3,
       },
       jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
     };
