@@ -1,5 +1,5 @@
 import html2canvas from "html2canvas";
-import html2pdf from "html2pdf.js";
+import jsPDF from "jspdf";
 
 export default function CvPreview(props) {
   const formatDateString = (inputDateString) => {
@@ -8,28 +8,27 @@ export default function CvPreview(props) {
     return dateObject.toLocaleDateString("en-GB", options);
   };
 
-  const handleDownload = () => {
-    const element = document.getElementById("pdf-content");
-
-    const options = {
-      margin: 0,
-      filename: "cv.pdf",
-      image: { type: "jpeg", quality: 0.98 },
-      html2canvas: { scale: 3 },
-      jsPDF: {
-        unit: "px",
-        format: [1280, 1920],
-      },
-    };
-
-    html2pdf(element, options);
+  const downloadPDF = () => {
+    const capture = document.querySelector("#pdf-content");
+    html2canvas(capture, { scale: 3 }).then((canvas) => {
+      const imgData = canvas.toDataURL("img/png");
+      const doc = new jsPDF({
+        unit: "mm",
+        format: "a4",
+        dpi: 300,
+      });
+      const componentWidth = doc.internal.pageSize.getWidth();
+      const componentHeight = doc.internal.pageSize.getHeight();
+      doc.addImage(imgData, "PNG", 0, 0, componentWidth, componentHeight);
+      doc.save("receipt.pdf");
+    });
   };
 
   return (
     <>
       <button
         className="bg-blue-400 border border-black h-16 w-48 my-5 rounded-md font-bold text-xl"
-        onClick={handleDownload}
+        onClick={downloadPDF}
       >
         <p>Download as PDF</p>
       </button>
